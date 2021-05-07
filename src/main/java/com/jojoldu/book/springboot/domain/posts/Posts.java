@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter // 롬복의 어노테이션
 @NoArgsConstructor // 롬복의 어노테이션션@Entity // JPA의 어노테이션
 @Entity // 테이블과 링크될 클래스
-public class Posts {
+public class Posts extends BaseTimeEntity{
     @Id // 테이블의 pk 필드
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
