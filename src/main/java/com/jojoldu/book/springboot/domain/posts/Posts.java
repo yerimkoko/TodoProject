@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity // setter를 안 만드는 이유? 언제 어디서 변해야 하는지 명확하게 알 수가 없기 때문이다.
-public class Posts {
+public class Posts extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,5 +32,4 @@ public class Posts {
         this.title = title;
         this.content = content;
     }
-
 }
