@@ -6,18 +6,17 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Getter // 롬복의 어노테이션
-@NoArgsConstructor // 롬복의 어노테이션션@Entity // JPA의 어노테이션
-@Entity // 테이블과 링크될 클래스
-public class Posts extends BaseTimeEntity{
-    @Id // 테이블의 pk 필드
+@Getter
+@NoArgsConstructor
+@Entity // setter를 안 만드는 이유? 언제 어디서 변해야 하는지 명확하게 알 수가 없기 때문이다.
+public class Posts {
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 500, nullable = false)
     private String title;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
     private String author;
@@ -33,4 +32,5 @@ public class Posts extends BaseTimeEntity{
         this.title = title;
         this.content = content;
     }
+
 }

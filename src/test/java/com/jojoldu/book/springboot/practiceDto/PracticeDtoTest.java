@@ -1,21 +1,24 @@
-package com.jojoldu.book.springboot.dto;
+package com.jojoldu.book.springboot.practiceDto;
 
 import org.junit.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class HelloResponseDtoTest {
+public class PracticeDtoTest {
 
     @Test
     public void 롬복_기능_테스트() {
         //given
-        String name = "yerimko";
-        int amount = 1000;
+        String name = "yerimkoko";
+        int amount = 100;
 
         //when
-        HelloResponseDto dto = new HelloResponseDto(name, amount);
+        PracticeResponseDto dto = new PracticeResponseDto(name, amount);
 
         //then
         assertThat(dto.getName()).isEqualTo(name);
         assertThat(dto.getAmount()).isEqualTo(amount);
+
     }
+
 }
