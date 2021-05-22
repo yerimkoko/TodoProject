@@ -2,6 +2,7 @@ package com.jojoldu.book.springboot.service;
 
 import com.jojoldu.book.springboot.domain.board.Board;
 import com.jojoldu.book.springboot.domain.board.BoardRepository;
+import com.jojoldu.book.springboot.dto.BoardResponseDto;
 import com.jojoldu.book.springboot.dto.BoardSaveRequestDto;
 import org.junit.After;
 import org.junit.Test;
@@ -42,6 +43,16 @@ public class BoardServiceTest {
         Board board = boardRepository.findAll().get(0);
         assertThat(board.getContent()).isEqualTo(dto.getContent());
         assertThat(board.getTitle()).isEqualTo(dto.getTitle());
+    }
+
+    @Test
+    public void board에_글을_삭제한다() {
+        // given
+
+
+        // when
+
+        // then
     }
 
 }
