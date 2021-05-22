@@ -4,7 +4,7 @@ import com.jojoldu.book.springboot.domain.board.Board;
 import com.jojoldu.book.springboot.domain.board.BoardRepository;
 import com.jojoldu.book.springboot.dto.BoardResponseDto;
 import com.jojoldu.book.springboot.dto.BoardSaveRequestDto;
-import com.jojoldu.book.springboot.dto.BoardUpdateDto;
+import com.jojoldu.book.springboot.dto.BoardUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,7 +32,7 @@ public class BoardService {
     }
 
     @Transactional
-    public void update(Long id, BoardUpdateDto dto) {
+    public void update(Long id, BoardUpdateRequestDto dto) {
         Board board = boardRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 글이 없습니다. id=" + id));
         board.update(dto.getContent(), dto.getTitle());
     }

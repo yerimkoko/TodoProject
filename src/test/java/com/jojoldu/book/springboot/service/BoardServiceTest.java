@@ -4,6 +4,7 @@ import com.jojoldu.book.springboot.domain.board.Board;
 import com.jojoldu.book.springboot.domain.board.BoardRepository;
 import com.jojoldu.book.springboot.dto.BoardResponseDto;
 import com.jojoldu.book.springboot.dto.BoardSaveRequestDto;
+import com.jojoldu.book.springboot.dto.BoardUpdateRequestDto;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -48,11 +49,41 @@ public class BoardServiceTest {
     @Test
     public void board에_글을_삭제한다() {
         // given
-
+        Board entity = Board.builder()
+                .title("title")
+                .content("content")
+                .build();
+        boardRepository.save(entity);
 
         // when
+        boardService.delete(entity.getId());
 
         // then
+        assertThat(boardRepository.findAll()).hasSize(0);
+    }
+
+    @Test
+    public void board에_글을_수정한다() {
+        // given
+        String title = "새벽까지";
+        String content = "관심분야조사";
+
+        Board entity = Board.builder()
+                .content(content)
+                .title(title)
+                .build();
+        boardRepository.save(entity);
+
+        // when
+        boardService.update(entity.getId(), BoardUpdateRequestDto.builder()
+                .content(content)
+                .title(title)
+                .build());
+
+        // then
+        assertThat(entity.getTitle()).isEqualTo(title);
+        assertThat(entity.getContent()).isEqualTo(content);
+
     }
 
 }

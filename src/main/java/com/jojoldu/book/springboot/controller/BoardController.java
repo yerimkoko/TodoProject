@@ -2,7 +2,7 @@ package com.jojoldu.book.springboot.controller;
 
 import com.jojoldu.book.springboot.dto.BoardResponseDto;
 import com.jojoldu.book.springboot.dto.BoardSaveRequestDto;
-import com.jojoldu.book.springboot.dto.BoardUpdateDto;
+import com.jojoldu.book.springboot.dto.BoardUpdateRequestDto;
 import com.jojoldu.book.springboot.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +29,7 @@ public class BoardController {
     }
 
     @PutMapping("/api/v1/board/{id}")
-    public void update(@PathVariable Long id, @RequestBody BoardUpdateDto dto) {
+    public void update(@PathVariable Long id, @RequestBody BoardUpdateRequestDto dto) {
         boardService.update(id, dto);
     }
 
